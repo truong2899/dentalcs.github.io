@@ -1,0 +1,262 @@
+--R1 Bệnh răng khôn mọc lệch
+<begin_rule1>
+  <hypothesis_part>
+    Đau tự nhiên          :type (dữ dội vùng góc hàm);
+    Sốt                   :true;
+    Có hạch dưới hàm      :true;
+    Khó há miệng          :true;
+    Ăn nhai đau           :true;
+    Viêm loét ở niêm nạc  :true;
+    Lợi ấn đau            :true;
+    Lợi chảy máu          :true;
+    Bờ lợi loét nhẹ       :true;
+    Có núm răng lộ khỏi lợi:true;
+    Chụp x quang_hình răng mọc lệch trục, hướng và vị trí : true;
+    Chụp x quang_ hình ảnh tổn thương mất mô cứng mặt xa răng, hàm lớn thứ hai: true;
+  </hypothesis_part>
+  <goal_part>
+    Bệnh răng khôn mọc lệch
+  </goal_part>
+</begin_rule1>
+
+--R2 Viêm tủy có hồi phục
+<begin_rule2.1>
+   <hypothesis_part> 
+     Đau tự nhiên           : type (xuất hiện thoáng qua);
+     Ăn chất kích thích     :bit  (đau);
+     Hết chất kích thích    :type (đau nhẹ);
+     Gõ dọc                 :type (không đau);
+     Gõ ngang               :type (Đau nhẹ);
+     Có lỗ sâu              :true;
+     Tổn thương tổ chức có lộ ngà: true;
+     Chụp X quang_hình ảnh tổn thương mô cứng : type (Lỗ Sâu)
+     Thử tủy_ đau           : type (sớm hết khi hết kích thích)
+   </hypothesis_part>
+   <goal_part>
+     Viêm tủy có hồi phục
+   </goal_part>
+</begin_rule2.1>
+
+<begin_rule2.2>
+   <hypothesis_part> 
+     Đau tự nhiên           : type (xuất hiện thoáng qua);
+     Ăn chất kích thích     :bit  (đau);
+     Hết chất kích thích    :type ( hết đau ngay);
+     Gõ dọc                 :type (không đau);
+     Gõ ngang               :type (Đau nhẹ);
+     Có lỗ sâu              :true;
+     Tổn thương tổ chức có lộ ngà: true;
+     Chụp X quang_hình ảnh tổn thương mô cứng : type (Lỗ Sâu)
+     Thử tủy_ đau           : type (sớm hết khi hết kích thích)
+   </hypothesis_part>
+   <goal_part>
+     Viêm tủy có hồi phục
+   </goal_part>
+</begin_rule2.2>
+
+--R3 Viêm tủy không hồi phục
+<begin_rule3>
+   <hypothesis_part> 
+     Đau tự nhiên           : type (từng cơn);
+     Đau từng cơn về đêm    :true ;
+     Ăn chất kích thích     :type  (đau);
+     Hết chất kích thích    :type (đau kéo dài);
+     Gõ dọc                 :type (đau nhẹ);
+     Gõ ngang               :type (Đau nhiều);
+     Có lỗ sâu              :true;
+     nhiều ngà mủn          :true;
+     Tổn thương tổ chức có lộ ngà: true;
+     làm sạch thấy ánh hồng hoặc tủy hở : true;
+     Chụp X quang_hình ảnh tổn thương mô cứng : type (Lỗ Sâu sát tủy)
+     Thử tủy_ đau           : type (kéo dài khi hết kích thích)
+   </hypothesis_part>
+   <goal_part>
+     Viêm tủy k hồi phục
+   </goal_part>
+</begin_rule3>
+
+--R4 Mất răng từng phần  
+<begin_rule4.1>
+   <hypothesis_part> 
+     Mất 1 hoặc nhiều răng trên 1 hàm : true;
+   </hypothesis_part>
+   <goal_part>
+     Mất răng từng phần
+   </goal_part>
+</begin_rule4.1>
+
+<begin_rule4.2>
+   <hypothesis_part> 
+     Mất  nhiều răng trên 1 hàm : true;
+   </hypothesis_part>
+   <goal_part>
+     Mất răng từng phần
+   </goal_part>
+</begin_rule4.2>
+
+<begin_rule4.3>
+   <hypothesis_part> 
+     Mất nhiều răng trên cả 2  hàm :true;
+   </hypothesis_part>
+   <goal_part>
+     Mất răng từng phần
+   </goal_part>
+</begin_rule4.3>
+
+--
+
+--R5 Mất toàn bộ răng
+<begin_rule5>
+   <hypothesis_part> 
+     Mất toàn bộ răng trên hàm : true;
+   </hypothesis_part>
+   <goal_part>
+     Mất răng toàn bộ
+   </goal_part>
+</begin_rule5>
+
+
+--R6 Sâu răng ngà
+<begin_rule6>
+   <hypothesis_part>
+     Ăn chất kích thích     :type (ê buốt);
+     Hết chất kích thích    :type (hết đau);
+     Có lỗ sâu              :true;
+     Gõ dọc                 :type (không đau);
+     Gõ ngang               :type(không đau);
+     thử tủy_ê              : type ( kéo dài khi hết kích thích);
+     Chụp Xquang_hình ảnh tổn thương mô cứng :type(có lỗ sâu);
+   </hypothesis_part>
+   <goal_part>
+      Sâu răng ngà
+   </goal_part>
+</begin_rule6>
+
+
+
+--R7 Viêm quanh cuống cấp
+<begin_rule7>
+   <hypothesis_part>
+      Đau tự nhiên           :type  (đau liên tục);
+      Đau khi chạm răng đối  :true;
+      Cảm giác răng trồi lên cao  :true;
+      Ăn chất kích thích     :type  (không đau);
+      Sốt                    :true;
+      Có hạch                :true;
+      Lợi sưng nề            :true;
+      Ấn ngách lợi và vùng cuống: type(đau);
+      Gõ ngang               :type (đau nhiều);
+      Gõ dọc                 :type (đau nhiều);
+      Thử tủy                :type (không đau);
+      Chụp Xquang_hình ảnh tổn thương mô cứng  :type(lỗ sâu sát tủy);
+      Chụp Xquang_hình ảnh thấu quanh vùng cuống :true;
+   </hypothesis_part>
+   <goal_part>
+      Viêm quanh cuống cấp
+   </goal_part>
+</begin_rule7>
+
+
+--R8 Viêm lời liên quan mảng bám răng
+<begin_rule8.1>
+   <hypothesis_part8>
+      Có hạch dưới hàm       :truel;
+      Có mảng bám răng giáp bờ viền lợi  :true;
+      Bờ lợi_nhú lợi sưng    :true;
+      Bờ lợi_phù nề          :true;
+      Màu lợi                : type đỏ nhạt;
+      Chụp Xquang_Hình ảnh tiêu xương ổ răng : fail;
+  </hypothesis_part>
+  <goal_part>
+      Viêm lợi lên quan mảng bám răng
+  </goal_part>
+</begin_part8.1>
+
+<begin_rule8.2>
+   <hypothesis_part>
+      Có hạch dưới hàm       :truel;
+      Có mảng bám răng giáp bờ viền lợi  :true;
+      Bờ lợi_nhú lợi sưng    :true;
+      Bờ lợi_phù nề          :true;
+      Màu lợi                :type đỏ sẫm;
+      Chụp Xquang_Hình ảnh tiêu xương ổ răng : fail;
+  </hypothesis_part>
+  <goal_part>
+      Viêm lợi lên quan mảng bám răng
+  </goal_part>
+</begin_part8.1>
+
+
+--R9 Viêm quanh răng tiến triển chậm
+<begin_rule9.1>
+   <hypothesis_part>
+      Chảy máu răng          :true;
+      Răng lung lay          :true;
+      Mất bám dính quanh răng:true;
+      Chụp Xquang_Hình ảnh tiêu xương ổ răng :true;
+      Chụp Xquang_Hình ảnh di lệch răng :true;
+    </hypothesis_part>
+    <goal_part>
+      Viêm quanh răng tiến triển chậm
+    </goal_part>
+</begin_rule9.1>
+
+<begin_rule9.2>
+   <hypothesis_part>
+      Chảy máu răng khi có kích thích :true;
+      Răng lung lay          :true;
+      Mất bám dính quanh răng:true;
+      Chụp Xquang_Hình ảnh tiêu xương ổ răng :true;
+      Chụp Xquang_Hình ảnh di lệch răng :true;
+    </hypothesis_part>
+    <goal_part>
+      Viêm quanh răng tiến triển chậm
+    </goal_part>
+</begin_rule9.2>
+
+
+--R10 Tủy hoại tử
+<begin_rule10>
+   <hypothesis_part>
+      Đau tự nhiên           :type không đau;
+      Ăn chất kích thích     :type không đau;
+      Gõ dọc                 :type đau nhẹ;
+      Gõ ngang               :type không đau;
+      Có lỗ sâu              :true;
+      Thử tủy                :type không đau;
+      Chụp Xquang_hình ảnh tổn thương mô cứng :type lỗ sâu sát tủy;
+   </hypothesis_part>
+   <goal_part>
+      Tủy hoại tử
+    </goal_part>
+</begin_rule10>
+
+
+--R11 Nhiễm trùng tủy răng
+<begin_rule11>
+   <hypothesis_part>
+      Đau tự nhiên           :type kéo dài 10-15ph;
+      Có lỗ sâu              :true;
+  </hypothesis_part>
+  <goal_part>
+      Nhiễm trùng tủy răng
+  </goal_part>
+</begin_part11>
+
+
+--R12 Viêm quanh cuống cấp tính
+<begin_rule12>
+   <hypothesis_part>
+      Đau tự nhiên           :type đau nhiều;
+      Mệt mỏi & sốt          :true;
+      Có hạch                :true;  
+      Răng lung lay          :true;
+      Đau Khi chạm răng đối  :true;
+  </hypothesis_part>
+  <goal_part>
+      Viêm quanh cuống cấp tính
+  </goal_part>
+</begin_rule12>
+      
+
+
